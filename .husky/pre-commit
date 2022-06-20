@@ -1,12 +1,13 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-projectsUpdated =$(git diff --name-only | grep / | sed 's/\/.*$//g' | sort | uniq)
+projectsUpdated=$(git diff --name-only | grep / | sed 's/\/.*$//g' | sort | uniq)
 
 for project in $projectsUpdated; do
   configFile="$project/.husky/pre-commit"
   if [[ -f "$configFile" ]]; then
-    "$project"/.husky/pre-commit
+    cd $project && .husky/pre-commit
+    cd ..
   else
     echo "No hook script found at \"$configFile\""
   fi
