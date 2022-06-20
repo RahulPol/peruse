@@ -1,7 +1,9 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-projectsUpdated=$(git diff --name-only | grep / | sed 's/\/.*$//g' | sort | uniq)
+echo "Running pre-commit"
+
+projectsUpdated=$(git diff --name-only --cached | grep / | sed 's/\/.*$//g' | sort | uniq)
 
 for project in $projectsUpdated; do
   configFile="$project/.husky/pre-commit"
