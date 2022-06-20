@@ -1,0 +1,4 @@
+This folder should contain all the third party communication with project.
+
+So things like authentication using firebase, getting data from server, local storage, etc. should  be
+part of this folder.
