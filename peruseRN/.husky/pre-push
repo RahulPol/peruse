@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+yarn run improved-yarn-audit --min-severity moderate
