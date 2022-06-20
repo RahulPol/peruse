@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+projectsUpdated=$(git diff --name-only | grep / | sed 's/\/.*$//g' | sort | uniq)
+
+for project in $projectsUpdated; do
+  configFile="$project/.husky/pre-commit"
+  if [[ -f "$configFile" ]]; then
+    cd $project && .husky/pre-push
+    cd ..
+  else
+    echo "No hook script found at \"$configFile\""
+  fi
+done
+
+exit 0
