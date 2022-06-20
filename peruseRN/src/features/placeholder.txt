@@ -1,0 +1,7 @@
+This folder should contain all the features for your application.
+
+The features structure should be as follows:
+    feature_name: The name of the feature
+        screens: The screens of the feature
+        components: Feature specific components
+        

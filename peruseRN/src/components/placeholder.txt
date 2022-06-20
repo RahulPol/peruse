@@ -1,0 +1,1 @@
+This folder should contain common components used across features.
