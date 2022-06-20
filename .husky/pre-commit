@@ -1,5 +1,15 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-# Run linter for React native project
-cd peruseRN && yarn lint
+projectsUpdated =$(git diff --name-only | grep / | sed 's/\/.*$//g' | sort | uniq)
+
+for project in $projectsUpdated; do
+  configFile="$project/.husky/pre-commit"
+  if [[ -f "$configFile" ]]; then
+    "$project"/.husky/pre-commit
+  else
+    echo "No hook script found at \"$configFile\""
+  fi
+done
+
+exit 0
