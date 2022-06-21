@@ -6,6 +6,13 @@ const config: ExpoConfig = {
   version: '0.0.1',
   orientation: 'portrait',
   icon: './assets/icon_2.png',
+  android: {
+    adaptiveIcon: {
+      foregroundImage: './assets/icon_2.png',
+      backgroundColor: '#FFFFFF',
+    },
+    package: 'com.peruse.peruseRN',
+  },
 };
 
 export default config;
