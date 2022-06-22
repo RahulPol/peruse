@@ -17,6 +17,12 @@ jobs:
           node-version: 16.13.2
           cache: npm
 
+      - name: 🏗 Setup Expo
+        uses: expo/expo-github-action@v7
+        with:
+          expo-version: latest
+          token: ${{ secrets.EXPO_ACCESS_TOKEN }}
+
       - name: 📦 Install dependencies
         run: yarn --frozen-lockfile
 
