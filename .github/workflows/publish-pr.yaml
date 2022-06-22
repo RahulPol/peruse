@@ -26,7 +26,7 @@ jobs:
       - name: 📦 Install dependencies
         run: yarn --frozen-lockfile
 
-      - nam: Check vulnerabilities
+      - name: Check vulnerabilities
         run: yarn run audit
 
       - name: Run lint
