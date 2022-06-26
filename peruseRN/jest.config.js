@@ -6,6 +6,7 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     '**/*.{ts,tsx}',
+    '!**/*.style.ts',
     '!**/app.config.ts',
     '!**/coverage/**',
     '!**/metro.config.ts',
