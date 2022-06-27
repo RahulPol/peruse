@@ -1,20 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Provider as PaperProvider } from 'react-native-paper';
+
+import StyledView from './src/components/utility/StyledView';
+import { AccountScreen } from './src/features/account/screens/account.screen';
+import { useResourceLoader } from './src/infrastructure/loader/useResourceLoader';
+import { theme } from './src/infrastructure/theme';
 
 export default function App() {
+  const { appIsReady, onLayoutRootView } = useResourceLoader();
+
+  if (!appIsReady) {
+    return null;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Welcome to Expo</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      {/* @ts-ignore - known issue - https://github.com/callstack/react-native-paper/issues/3223 */}
+      <PaperProvider theme={theme}>
+        <StyledView onLayout={onLayoutRootView}>
+          <AccountScreen />
+        </StyledView>
+
+        <StatusBar style="auto" />
+      </PaperProvider>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

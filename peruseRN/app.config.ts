@@ -5,7 +5,12 @@ const config: ExpoConfig = {
   slug: 'peruseRN',
   version: '0.0.1',
   orientation: 'portrait',
-  icon: './assets/icon_2.png',
+  icon: './assets/logo_2.jpg',
+  splash: {
+    image: './assets/logo_2.jpg',
+    resizeMode: 'contain',
+    backgroundColor: '#ffffff',
+  },
   android: {
     adaptiveIcon: {
       foregroundImage: './assets/icon_2.png',
