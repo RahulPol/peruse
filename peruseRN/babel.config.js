@@ -6,6 +6,9 @@ module.exports = function (api) {
       production: {
         plugins: ['react-native-paper/babel'],
       },
+      // test: {
+      //   plugins: ['react-native-paper/babel'],
+      // },
     },
   };
 };

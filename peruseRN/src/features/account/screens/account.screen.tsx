@@ -1,4 +1,3 @@
-import React from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import { Text, useTheme } from 'react-native-paper';
 
@@ -9,7 +8,7 @@ export const AccountScreen = () => {
 
   return (
     <>
-      <SafeAreaView style={[styles.container]}>
+      <SafeAreaView style={styles.container}>
         {/* @ts-ignore - known issue - https://github.com/callstack/react-native-paper/issues/3223 */}
         <Text style={{ fontFamily: theme.fonts.bold.fontFamily }}>
           Hello world

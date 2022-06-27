@@ -11,6 +11,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 export const useResourceLoader = () => {
   const [appIsReady, setAppIsReady] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     async function prepare() {
@@ -26,8 +27,11 @@ export const useResourceLoader = () => {
         });
       } catch (e) {
         // TODO: Add error handling for application errors
-        // eslint-disable-next-line no-console
-        console.warn(e);
+        if (e instanceof Error) {
+          setError(e.message);
+        } else {
+          setError('Unexpected error: ' + e);
+        }
       } finally {
         setAppIsReady(true);
       }
@@ -42,5 +46,5 @@ export const useResourceLoader = () => {
     }
   }, [appIsReady]);
 
-  return { appIsReady, onLayoutRootView };
+  return { appIsReady, error, onLayoutRootView };
 };
