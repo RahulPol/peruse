@@ -8,8 +8,9 @@ import { AccountLogin } from './account-login.component';
 
 jest.mock('../../../services/authentication/authentication.context');
 const mockLogin = jest.fn();
+const mockGoogleLogin = jest.fn();
 
-// the following resolution wont work if you enable jest useFakeTimers
+// the following resolution won't work if you enable jest useFakeTimers
 const flushMicrotasksQueue = () =>
   new Promise((resolve) => setImmediate(resolve));
 
@@ -18,8 +19,10 @@ describe('<AccountLogin>', () => {
     jest.resetAllMocks();
     (useAuth as jest.Mock).mockReturnValue({
       login: mockLogin,
+      loginWithGoogle: mockGoogleLogin,
       isLoading: false,
       error: '',
+      resetError: jest.fn(),
     });
   });
 
@@ -102,8 +105,10 @@ describe('<AccountLogin>', () => {
   it('should raise error when login fails', async () => {
     (useAuth as jest.Mock).mockReturnValue({
       login: mockLogin,
+      loginWithGoogle: mockGoogleLogin,
       isLoading: false,
       error: 'mock error',
+      resetError: jest.fn(),
     });
     const { getByPlaceholderText, getByText } = render(
       <ThemeProvider theme={theme}>
@@ -118,5 +123,20 @@ describe('<AccountLogin>', () => {
 
     await waitFor(() => expect(mockLogin).toHaveBeenCalledTimes(1));
     await waitFor(() => expect(getByText('mock error')).toBeDefined());
+  });
+
+  it('should allow google login', async () => {
+    const { getByPlaceholderText, getByText } = render(
+      <ThemeProvider theme={theme}>
+        <AccountLogin />
+      </ThemeProvider>
+    );
+
+    fireEvent.changeText(getByPlaceholderText('Email'), 'valid@valid.com');
+    fireEvent.changeText(getByPlaceholderText('Password'), 'valid@123');
+
+    fireEvent.press(getByText('Sign in with Google'));
+
+    await waitFor(() => expect(mockGoogleLogin).toHaveBeenCalledTimes(1));
   });
 });

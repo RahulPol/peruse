@@ -13,6 +13,7 @@ Object {
   "icon": "./assets/logo_2.jpg",
   "name": "PeruseRN",
   "orientation": "portrait",
+  "scheme": "https",
   "slug": "PeruseRN",
   "splash": Object {
     "backgroundColor": "#ffffff",

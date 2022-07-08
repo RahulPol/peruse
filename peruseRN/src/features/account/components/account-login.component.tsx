@@ -28,12 +28,13 @@ export const AccountLogin = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [validationErrors, setValidationErrors] = useState<YupError[]>();
-  const { isLoading, error, login } = useAuth();
+  const { isLoading, error, resetError, login, loginWithGoogle } = useAuth();
 
   const { colors } = useTheme();
 
   const handleSubmit = async () => {
     try {
+      resetError();
       setValidationErrors([]);
       await schema.validate({ email, password }, { abortEarly: false });
       await login(email, password);
@@ -43,6 +44,12 @@ export const AccountLogin = () => {
         setValidationErrors(errors);
       }
     }
+  };
+
+  const handleGoogleLogin = async () => {
+    resetError();
+    setValidationErrors([]);
+    await loginWithGoogle();
   };
 
   return (
@@ -100,7 +107,8 @@ export const AccountLogin = () => {
         activeOutlineColor={colors.ui.primary}
         buttonColor={colors.text.primary}
         icon="google"
-        textColor={colors.ui.primary}>
+        textColor={colors.ui.primary}
+        onPress={() => handleGoogleLogin()}>
         Sign in with Google
       </GoogleButton>
     </AccountLoginView>
