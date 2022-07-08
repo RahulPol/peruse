@@ -50,7 +50,7 @@
     "eslint": "^8.18.0",
     "eslint-config-universe": "^11.0.0",
     "improved-yarn-audit": "^3.0.0",
-    "jest": "^28.1.1",
+    "jest": "^28.1.2",
     "jest-expo": "^45.0.1",
     "jest-styled-components": "^7.0.8",
     "prettier": "^2.7.1",
