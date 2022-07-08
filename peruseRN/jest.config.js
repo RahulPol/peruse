@@ -6,7 +6,8 @@ module.exports = {
   collectCoverageFrom: [
     '**/*.{ts,tsx}',
     '!**/*.style.ts',
-    '!**/app.config.ts',
+    '!**/*.style.tsx',
+    '!**/authentication.context.tsx',
     '!**/coverage/**',
     '!**/metro.config.ts',
     '!**/node_modules/**',
@@ -20,4 +21,5 @@ module.exports = {
       lines: 80,
     },
   },
+  setupFiles: ['./jest-setup.js'],
 };

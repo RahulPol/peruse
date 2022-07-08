@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`app.config should match config snapshot 1`] = `
+Object {
+  "android": Object {
+    "adaptiveIcon": Object {
+      "backgroundColor": "#FFFFFF",
+      "foregroundImage": "./assets/icon_2.png",
+    },
+    "package": "com.peruse.peruseRN",
+    "softwareKeyboardLayoutMode": "pan",
+  },
+  "icon": "./assets/logo_2.jpg",
+  "name": "PeruseRN",
+  "orientation": "portrait",
+  "slug": "PeruseRN",
+  "splash": Object {
+    "backgroundColor": "#ffffff",
+    "image": "./assets/logo_2.jpg",
+    "resizeMode": "contain",
+  },
+  "version": "0.0.1",
+}
+`;

@@ -1,20 +1,20 @@
-import { customColorPalette } from './colorPalette';
-import { fontConfig } from './fonts';
-import { theme } from './index';
+import { lightColorPalette } from './colorPalette';
+import { fonts } from './fonts';
+import { lightTheme as theme } from './index';
 import { space } from './spacing';
 
 describe('Theme', () => {
   describe('Theme.colors', () => {
     it('should contain custom color pallet', () => {
       expect(theme).toHaveProperty('colors');
-      expect(theme.colors).toEqual(expect.objectContaining(customColorPalette));
+      expect(theme.colors).toEqual(expect.objectContaining(lightColorPalette));
     });
   });
 
   describe('Theme.fonts', () => {
     it('should match font config', () => {
       expect(theme).toHaveProperty('fonts');
-      expect(theme.fonts).toMatchObject(fontConfig.android);
+      expect(theme.fonts).toMatchObject(fonts);
     });
   });
 

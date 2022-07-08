@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react-native';
 
-import StyledView from './StyledView';
+import StyledView from './styled-view.component';
 
-jest.mock('react-native-paper', () => ({
-  ...jest.requireActual('react-native-paper'),
+jest.mock('styled-components', () => ({
+  ...jest.requireActual('styled-components'),
   useTheme: jest
     .fn()
-    .mockImplementation(() => ({ colors: { background: '#000000' } })),
+    .mockImplementation(() => ({ colors: { bg: { primary: '#000000' } } })),
 }));
 
 describe('<StyledView>', () => {
@@ -16,6 +16,7 @@ describe('<StyledView>', () => {
 
     expect(element).toBeDefined();
   });
+
   it('should be called with props passed', () => {
     render(<StyledView focusable />);
     const element = screen.getByTestId('test-styled-view');

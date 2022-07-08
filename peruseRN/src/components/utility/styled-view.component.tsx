@@ -1,5 +1,5 @@
 import { View, ViewProps } from 'react-native';
-import { useTheme } from 'react-native-paper';
+import { useTheme } from 'styled-components';
 
 const StyledView = (props: ViewProps) => {
   const { colors } = useTheme();
@@ -7,7 +7,7 @@ const StyledView = (props: ViewProps) => {
   return (
     <View
       testID="test-styled-view"
-      style={{ backgroundColor: colors.background, flex: 1 }}
+      style={{ backgroundColor: colors.bg.primary, flex: 1 }}
       {...props}
     />
   );
