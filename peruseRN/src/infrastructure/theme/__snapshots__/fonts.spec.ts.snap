@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fontConfig should match the snapshot 1`] = `
+Object {
+  "body": "Oswald_400Regular",
+  "heading": "Lato_400Regular",
+  "monospace": "Oswald_400Regular",
+}
+`;
+
+exports[`fontConfig should match the snapshot 2`] = `
+Object {
+  "bold": 700,
+  "medium": 500,
+  "regular": 400,
+}
+`;
+
+exports[`fontConfig should match the snapshot 3`] = `
+Object {
+  "appTitle": "32px",
+  "body": "16px",
+  "button": "14px",
+  "caption": "12px",
+  "h1": "112px",
+  "h2": "56px",
+  "h3": "45px",
+  "h4": "34px",
+  "h5": "24px",
+  "title": "20px",
+}
+`;

@@ -1,32 +1,21 @@
-import {
-  MD3LightTheme as DefaultTheme,
-  configureFonts,
-} from 'react-native-paper';
+import { DefaultTheme } from 'styled-components/native';
 
-import { Spacing } from '../typings/spacing';
-import { customColorPalette } from './colorPalette';
-import { fontConfig } from './fonts';
-import { space } from './spacing';
+import { darkColorPalette, lightColorPalette } from './colorPalette';
+import { elevations } from './elevations';
+import { fontSizes, fontWeights, fonts } from './fonts';
+import { lineHeights, space } from './spacing';
 
-declare global {
-  namespace ReactNativePaper {
-    interface Theme {
-      space: Spacing;
-    }
-    interface ThemeFonts {
-      bold: ThemeFont;
-    }
-  }
-}
-
-// For now using the default theme colors
-// TODO: Use different colors for theme.
-export const theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    ...customColorPalette,
-  },
-  fonts: configureFonts(fontConfig),
+export const lightTheme: DefaultTheme = {
+  colors: lightColorPalette,
+  elevations,
+  fonts,
+  fontSizes,
+  fontWeights,
+  lineHeights,
   space,
+};
+
+export const darkTheme: DefaultTheme = {
+  ...lightTheme,
+  colors: darkColorPalette,
 };

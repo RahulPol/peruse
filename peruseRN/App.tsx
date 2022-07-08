@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { Provider as PaperProvider } from 'react-native-paper';
+import { ThemeProvider } from 'styled-components';
 
-import StyledView from './src/components/utility/StyledView';
-import { AccountScreen } from './src/features/account/screens/account.screen';
+import StyledView from './src/components/utility/styled-view.component';
 import { useResourceLoader } from './src/infrastructure/loader/useResourceLoader';
-import { theme } from './src/infrastructure/theme';
+import { Navigation } from './src/infrastructure/navigation';
+import { lightTheme as theme } from './src/infrastructure/theme';
+import { AuthenticationContextProvider } from './src/services/authentication/authentication.context';
 
 export default function App() {
   const { appIsReady, onLayoutRootView } = useResourceLoader();
@@ -15,14 +16,15 @@ export default function App() {
 
   return (
     <>
-      {/* @ts-ignore - known issue - https://github.com/callstack/react-native-paper/issues/3223 */}
-      <PaperProvider theme={theme}>
-        <StyledView onLayout={onLayoutRootView}>
-          <AccountScreen />
-        </StyledView>
+      <ThemeProvider theme={theme}>
+        <AuthenticationContextProvider>
+          <StyledView onLayout={onLayoutRootView}>
+            <Navigation />
+          </StyledView>
+        </AuthenticationContextProvider>
 
         <StatusBar style="auto" />
-      </PaperProvider>
+      </ThemeProvider>
     </>
   );
 }

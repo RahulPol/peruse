@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColorPalette should create a color palette with custom colors 1`] = `
+Object {
+  "bg": Object {
+    "primary": "#FFFFFF",
+    "secondary": "#F1F1F1",
+  },
+  "brand": Object {
+    "muted": "#565656",
+    "primary": "#DB4818",
+  },
+  "text": Object {
+    "disabled": "#999999",
+    "error": "#D0421B",
+    "primary": "#FFFFFF",
+    "secondary": "#9E9E9E",
+    "success": "#138000",
+  },
+  "ui": Object {
+    "disabled": "#999999",
+    "error": "#D0421B",
+    "primary": "#FF6721",
+    "secondary": "#CCCCCC",
+    "success": "#138000",
+    "tertiary": "#565656",
+  },
+}
+`;
