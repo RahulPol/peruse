@@ -36,6 +36,7 @@ export const AccountRegister = () => {
 
   const handleRegister = async () => {
     try {
+      setValidationErrors([]);
       await schema.validate(
         { email, password, confirmedPassword },
         { abortEarly: false }

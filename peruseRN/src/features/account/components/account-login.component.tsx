@@ -34,6 +34,7 @@ export const AccountLogin = () => {
 
   const handleSubmit = async () => {
     try {
+      setValidationErrors([]);
       await schema.validate({ email, password }, { abortEarly: false });
       await login(email, password);
     } catch (err) {
