@@ -6,6 +6,7 @@ const config: ExpoConfig = {
   version: '0.0.1',
   orientation: 'portrait',
   icon: './assets/logo_2.jpg',
+  scheme: 'https',
   splash: {
     image: './assets/logo_2.jpg',
     resizeMode: 'contain',
