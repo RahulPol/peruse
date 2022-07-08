@@ -54,6 +54,7 @@ export const AuthenticationContextProvider = ({
 
   const login = async (email: string, password: string) => {
     try {
+      setError(undefined);
       setIsLoading(true);
       await loginRequest(firebaseAuth, email, password);
       setIsLoading(false);
@@ -75,6 +76,7 @@ export const AuthenticationContextProvider = ({
     confirmPassword: string
   ) => {
     try {
+      setError(undefined);
       if (password !== confirmPassword) {
         setError('Password does not match');
         return;
