@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@expo-google-fonts/roboto": "^0.2.2",
-    "@react-navigation/native": "^6.0.10",
+    "@react-navigation/native": "^6.1.1",
     "@react-navigation/native-stack": "^6.7.0",
     "expo": "~45.0.6",
     "expo-app-loading": "~2.0.0",
